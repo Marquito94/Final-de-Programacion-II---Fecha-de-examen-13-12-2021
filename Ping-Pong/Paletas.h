@@ -14,11 +14,15 @@ class Paleta: public Jugador<int>
     type1 ancho;
 
     public:
-    Paleta() {
+    Paleta () {
         X = 0;
         Y = 0;
         alto = 10;
         ancho = 2;
+    }
+
+    ~Paleta () {
+
     }
 
     void setTamano( type1 ancho , type1 alto ) {
