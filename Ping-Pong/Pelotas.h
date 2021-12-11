@@ -32,6 +32,10 @@ class Pelota: public Paleta<int>
         dirY=0;
     }
 
+    ~Pelota () {
+
+    }
+
     void setVel( type1 velocidad ) {
         this->velocidad = velocidad;
     }
