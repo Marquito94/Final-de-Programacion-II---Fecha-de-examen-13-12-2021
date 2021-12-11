@@ -16,6 +16,8 @@ class Jugador
     Jugador() {
         puntaje1 = 0;
         puntaje2 = 0;
+        disparos1 = 0;
+        disparos2 = 0;
     }
 
     void setPuntaje1 ( type1 Puntaje1 ) {
