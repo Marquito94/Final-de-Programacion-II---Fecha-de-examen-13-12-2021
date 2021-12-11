@@ -165,8 +165,8 @@ void moverPelota( Pelota<int,float> &pelota , Paleta<int> &paleta1 , Paleta<int>
                         }
                         diry *= -1;
                     }   
-                pelota.setVelX( pelota.getVel() - 1 );
-                pelota.setVelY( pelota.getVel() + 1 );
+                    pelota.setVelX( pelota.getVel() - 1 );
+                    pelota.setVelY( pelota.getVel() + 1 );
                 }
                 else if( py > y1 + 31 && py < y1 + paleta1.getAlto() - 32 )
                 //GOLPE EN EL MEDIO DE LA PALETA. Y=X
@@ -175,8 +175,8 @@ void moverPelota( Pelota<int,float> &pelota , Paleta<int> &paleta1 , Paleta<int>
                     {
                         funciones.setPropulsion( 1 );
                     }
-                pelota.setVelX( pelota.getVel() );
-                pelota.setVelY( pelota.getVel() );
+                    pelota.setVelX( pelota.getVel() );
+                    pelota.setVelY( pelota.getVel() );
                 }
                 play_sample( hit , 200 , 150 , 1000 , 0 );
                 dirx *= -1;
@@ -194,31 +194,31 @@ void moverPelota( Pelota<int,float> &pelota , Paleta<int> &paleta1 , Paleta<int>
                         return;
                     }
                 }
-             }
-	 }
-	 else if ( px >= ANCHO - paleta2.getAncho() - pelota.getAncho() / 2)
-         //GOLPE BORDE INTERIOR DE PALETA2
-	 {
-	    if ( py >= y2 && py <= y2 + paleta2.getAlto())
-            //GOLPE LIMITES LARGO DE PALETA
-            {
-                if( py >= y2 && py <= y2 + paleta2.getAlto() - 63 )
-                //GOLPE ESQUINA SUPERIOR. VELOCIDAD DE EJE Y>X
-                {
-                    if( diry == 1 )
-                    {
-                        if(key[KEY_ALTGR])
-                        {
-                            funciones.setPropulsion( 2 );
-                        }
-                        diry *= -1;
-                    }
-                    pelota.setVelX( pelota.getVel() - 1 );
-                    pelota.setVelY( pelota.getVel() + 1 );
-                }
-                else if(py >= y2 + 62 && py <= y2 + paleta1.getAlto() )
-                //GOLPE ESQUINA INFERIOR. VELOCIDAD DE EJE Y>X
-                {
+            }
+	}
+        else if ( px >= ANCHO - paleta2.getAncho() - pelota.getAncho() / 2)
+        //GOLPE BORDE INTERIOR DE PALETA2
+	{
+	   if ( py >= y2 && py <= y2 + paleta2.getAlto())
+           //GOLPE LIMITES LARGO DE PALETA
+           {
+               if( py >= y2 && py <= y2 + paleta2.getAlto() - 63 )
+               //GOLPE ESQUINA SUPERIOR. VELOCIDAD DE EJE Y>X
+               {
+                   if( diry == 1 )
+                   {
+                       if(key[KEY_ALTGR])
+                       {
+                           funciones.setPropulsion( 2 );
+                       }
+                       diry *= -1;
+                   }
+                   pelota.setVelX( pelota.getVel() - 1 );
+                   pelota.setVelY( pelota.getVel() + 1 );
+               }
+               else if(py >= y2 + 62 && py <= y2 + paleta1.getAlto() )
+               //GOLPE ESQUINA INFERIOR. VELOCIDAD DE EJE Y>X
+               {
                    if( diry == -1 )
                    {
                        if(key[KEY_ALTGR])
@@ -229,34 +229,34 @@ void moverPelota( Pelota<int,float> &pelota , Paleta<int> &paleta1 , Paleta<int>
                    }
                    pelota.setVelX( pelota.getVel() - 1 );
                    pelota.setVelY( pelota.getVel() + 1 );
-                }
-                else if( py > y2 + 31 && py < y2 + paleta1.getAlto() - 32 )
-                //GOLPE EN EL MEDIO DE LA PALETA
-                {
-                    if(key[KEY_ALTGR])
-                    {
-                        funciones.setPropulsion( 2 );
-                    }
-                pelota.setVelX( pelota.getVel() );
-                pelota.setVelY( pelota.getVel() );
-                }
-                play_sample( hit , 200 , 150 , 1000 , 0 );
-                dirx *= -1;
-            }
-            else
-            //PIERDE PALETA2
-            {
+               }
+               else if( py > y2 + 31 && py < y2 + paleta1.getAlto() - 32 )
+               //GOLPE EN EL MEDIO DE LA PALETA
+               {
+                   if(key[KEY_ALTGR])
+                   {
+                       funciones.setPropulsion( 2 );
+                   }
+                   pelota.setVelX( pelota.getVel() );
+                   pelota.setVelY( pelota.getVel() );
+               }
+               play_sample( hit , 200 , 150 , 1000 , 0 );
+               dirx *= -1;
+           }
+           else
+           //PIERDE PALETA2
+           {
                if( py > y2 + paleta2.getAlto() || py < y2 )
                {
-                  if( px >= ANCHO - paleta2.getAncho() - pelota.getAncho() / 2 )
-                  {
-                      funciones.setMensaje( 1 );
-                      play_sample( punto , 200 , 150 , 1000 , 0 );
-                      resetPelota( pelota , paleta2 , 2 , jugadores , funciones , buffer , jugador1 , jugador2 , level_up , winner);
-                      return;
-                  }
-               }
-            }
+                   if( px >= ANCHO - paleta2.getAncho() - pelota.getAncho() / 2 )
+                   {
+                        funciones.setMensaje( 1 );
+                        play_sample( punto , 200 , 150 , 1000 , 0 );
+                        resetPelota( pelota , paleta2 , 2 , jugadores , funciones , buffer , jugador1 , jugador2 , level_up , winner);
+                        return;
+                   }
+              }
+        }
 	else if (( diry < 0 && py <= 0 ) || ( diry > 0 &&  py >= ( ALTO-pelota.getAlto() ) ))
         //REBOTE PARED
         {
@@ -264,7 +264,7 @@ void moverPelota( Pelota<int,float> &pelota , Paleta<int> &paleta1 , Paleta<int>
             diry *= -1;
 	}
 
-	if( pelota.getX() <= paleta1.getAncho() + pelota.getAncho() / 2  && pelota.getY() <= paleta1.getY()  && pelota.getY() <= paleta1.getY() + paleta1.getAlto() && key[KEY_ALT] )
+	if( pelota.getX() <= paleta1.getAncho() + pelota.getAncho() / 2  && pelota.getY() >= paleta1.getY()  && pelota.getY() <= paleta1.getY() + paleta1.getAlto() && key[KEY_ALT] )
         //PROPULSION PALETA1
         {
             funciones.setPropulsion( 1 );
@@ -279,7 +279,7 @@ void moverPelota( Pelota<int,float> &pelota , Paleta<int> &paleta1 , Paleta<int>
         }
 
        //PROPULSION PALETA2
-       if( pelota.getX() >= ANCHO - paleta2.getAncho() - pelota.getAncho() / 2 && pelota.getY() <= paleta2.getY() + 2 && pelota.getY() <= paleta1.getY() + paleta1.getAlto() - 2 && key[KEY_ALTGR] )
+       if( pelota.getX() >= ANCHO - paleta2.getAncho() - pelota.getAncho() / 2 && pelota.getY() >= paleta2.getY() && pelota.getY() <= paleta1.getY() + paleta1.getAlto() && key[KEY_ALTGR] )
        {
            funciones.setPropulsion( 2 );
        }
@@ -306,9 +306,9 @@ void golpe_especialp1( Pelota<int,float> &pelota , Paleta<int> paleta , BITMAP *
     int j = rand() % 80; //EJE X
     int k = rand() % 50; //EJE Y ( Y*2 = 100 )
 
-
-    //DIBUJOS ESTELA DE PELOTA
+	
     if( pelota.getX() < 700 && diry > 0 )
+    //DIBUJOS ESTELA DE PELOTA PALETA1. DIRECCION DE Y POSITIVA
     {
         for( i=0 ; i<1000 ; i++ )
         {
@@ -327,6 +327,7 @@ void golpe_especialp1( Pelota<int,float> &pelota , Paleta<int> paleta , BITMAP *
         }
     }
     else if( pelota.getX() < 700 && diry < 0 )
+    //DIBUJOS ESTELA DE PELOTA PALETA1. DIRECCION DE Y NEGATIVA
     {
         for( i=0 ; i<1000 ; i++ )
         {
@@ -363,8 +364,8 @@ void golpe_especialp2( Pelota<int,float> &pelota , Paleta<int> paleta , BITMAP *
     int j = rand() % 80; // EJE X
     int k = rand() % 50; // EJE Y ( Y*2 = 100)
 
-    //DIBUJOS ESTELA DE PELOTA
-    if( pelota.getX() > 300 && diry < 0 )
+    //DIBUJOS ESTELA DE PELOTA PALETA2. DIRECCION DE Y POSITIVA
+    if( pelota.getX() > 300 && diry > 0 )
     {
         for( i=0 ; i<1000 ; i++ )
         {
@@ -382,7 +383,8 @@ void golpe_especialp2( Pelota<int,float> &pelota , Paleta<int> paleta , BITMAP *
             line( buffer , pelota.getX() + j + 14 , pelota.getY() - ( k + 10 ), pelota.getX() + j + 14 , pelota.getY() -(k + 10 ) , 0x00FCFE );
         }
     }
-    else if( pelota.getX() > 300 && diry > 0 )
+    else if( pelota.getX() > 300 && diry < 0 )
+    //DIBUJOS ESTELA DE PELOTA PALETA2. DIRECCION DE Y NEGATIVA
     {
         for( i=0 ; i<1000 ; i++ )
         {
