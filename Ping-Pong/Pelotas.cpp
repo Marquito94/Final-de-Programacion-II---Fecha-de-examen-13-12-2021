@@ -3,8 +3,8 @@
 
 void resetPelota( Pelota<int,float> &pelota , Funcionalidad<int,bool> &funciones )
 {
-    //SETTERS DE PELOTA
-	pelota.setX( ANCHO / 2 );
+        //SETTERS DE PELOTA
+        pelota.setX( ANCHO / 2 );
 	pelota.setY( ALTO / 2 );
 	srand( time( 0 ) );
 	int direccionX = ( rand() % 2) + 1; //DIRECCION X RAND 0/1
@@ -18,25 +18,26 @@ void resetPelota( Pelota<int,float> &pelota , Funcionalidad<int,bool> &funciones
 
 void resetPelota( Pelota<int,float> &pelota , Paleta<int> paleta , int a , Jugador<int> &jugadores , Funcionalidad<int,bool> &funciones , BITMAP *buffer , BITMAP *jugador1 , BITMAP *jugador2 , SAMPLE *level_up , SAMPLE *winner)
 {
-	if ( a == 1 )
+    if ( a == 1 )
     {
-        //GANA PALETA2
-        //PELOTA SETTEADA EN PALETA1
-		pelota.setX( paleta.getX() + paleta.getAncho() + pelota.getAncho() - 3 );
-		pelota.setY( paleta.getY() + paleta.getAlto() / 2 );
-		pelota.setDirX( 1 );
+    //GANA PALETA2
+    //PELOTA SETTEADA EN PALETA1
+	pelota.setX( paleta.getX() + paleta.getAncho() + pelota.getAncho() - 3 );
+	pelota.setY( paleta.getY() + paleta.getAlto() / 2 );
+	pelota.setDirX( 1 );
         jugadores.setPuntaje2( jugadores.getPuntaje2() + 1 );
-	}
-	else
-	{
-	    //GANA PALETA1
-	    //PELOTA SETTEADA EN PALETA2
-		pelota.setX( paleta.getX() - paleta.getAncho() / 2 - pelota.getAncho() + 7 );
-		pelota.setY( paleta.getY() + paleta.getAlto() / 2 );
-		pelota.setDirX( -1 );
-		jugadores.setPuntaje1( jugadores.getPuntaje1() + 1 );
-	}
-	if( funciones.getContador() == 3 )
+    }
+    else
+    {  
+    //GANA PALETA1
+    //PELOTA SETTEADA EN PALETA2
+	pelota.setX( paleta.getX() - paleta.getAncho() / 2 - pelota.getAncho() + 7 );
+	pelota.setY( paleta.getY() + paleta.getAlto() / 2 );
+	pelota.setDirX( -1 );
+	jugadores.setPuntaje1( jugadores.getPuntaje1() + 1 );
+    }
+
+    if( funciones.getContador() == 3 )
     {
         //CAMBIO DE VELOCIDAD1 - NIVEL2 - MENSAJE DE CAMBIO
         play_sample( level_up , 200 , 150 , 1000 , 0 );
