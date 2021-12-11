@@ -28,6 +28,10 @@ class Funcionalidad //type1 = int, type2 = BOOL
         tiempo++;
     }
 
+    ~Funcionalidad () {
+
+    }
+
     void setNivel ( type1 nivel ) {
         this->nivel = nivel;
     }
