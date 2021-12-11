@@ -184,7 +184,7 @@ void moverPelota( Pelota<int,float> &pelota , Paleta<int> &paleta1 , Paleta<int>
             else
 	    //PIERDE PALETA1
             {
-	        if( ( py > y1 + paleta1.getAlto() - 3 ) || py < y1 + 3 )
+	        if( ( py > y1 + paleta1.getAlto() ) || py < y1 )
                 {
                     if( px < paleta1.getAncho() + pelota.getAncho() / 2 )
                     {
@@ -264,7 +264,7 @@ void moverPelota( Pelota<int,float> &pelota , Paleta<int> &paleta1 , Paleta<int>
             diry *= -1;
 	}
 
-	if( pelota.getX() <= paleta1.getAncho() + 8  && pelota.getY() <= paleta1.getY() + 2 && pelota.getY() <= paleta1.getY() + paleta1.getAlto() - 2 && key[KEY_ALT] )
+	if( pelota.getX() <= paleta1.getAncho() + pelota.getAncho() / 2  && pelota.getY() <= paleta1.getY()  && pelota.getY() <= paleta1.getY() + paleta1.getAlto() && key[KEY_ALT] )
         //PROPULSION PALETA1
         {
             funciones.setPropulsion( 1 );
@@ -273,13 +273,13 @@ void moverPelota( Pelota<int,float> &pelota , Paleta<int> &paleta1 , Paleta<int>
         {
             golpe_especialp1( pelota , paleta1 , buffer , funciones.getPropulsion() , funciones , diry , jugadores );
         }
-        if( px <= ( paleta1.getAncho() + 8 ) )
+        if( px <= ( paleta1.getAncho() + pelota.getAncho() / 2 ) )
         {
             jugadores.setDisparos1( jugadores.getDisparos1() - 1 );
         }
 
        //PROPULSION PALETA2
-       if( pelota.getX() >= ANCHO - paleta2.getAncho() - 8  && pelota.getY() <= paleta2.getY() + 2 && pelota.getY() <= paleta1.getY() + paleta1.getAlto() - 2 && key[KEY_ALTGR] )
+       if( pelota.getX() >= ANCHO - paleta2.getAncho() - pelota.getAncho() / 2 && pelota.getY() <= paleta2.getY() + 2 && pelota.getY() <= paleta1.getY() + paleta1.getAlto() - 2 && key[KEY_ALTGR] )
        {
            funciones.setPropulsion( 2 );
        }
