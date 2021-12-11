@@ -20,6 +20,10 @@ class Jugador
         disparos2 = 0;
     }
 
+    ~Jugador () {
+
+    }
+
     void setPuntaje1 ( type1 Puntaje1 ) {
         this->puntaje1 = Puntaje1;
     };
