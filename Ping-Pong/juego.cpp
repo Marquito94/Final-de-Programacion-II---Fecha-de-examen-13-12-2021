@@ -1,7 +1,5 @@
 #include "juego.h"
 
-#include "juego.h"
-
 //INVOCACION DE CLASES
 Paleta<int> paletaV1;
 Paleta<int> paletaV2;
@@ -132,10 +130,10 @@ void inicializaciones( )
     audio[5].muestra_de_audio = audio6;
     audio[6].muestra_de_audio = audio7;
 
-    //VIÑETA1
+    //VIÃ‘ETA1
     setter_de_clases( );
 
-    //VIÑETA2
+    //VIÃ‘ETA2
     first_screen( );
 }
 void loop_del_juego ( )
