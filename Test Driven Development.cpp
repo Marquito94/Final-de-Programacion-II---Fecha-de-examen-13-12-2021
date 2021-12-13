@@ -31,6 +31,7 @@ bool TesteoDeClases( bool a )
 TEST_CASE( "Test de clase Jugadores.h - [Getters y Setters]" )
 {
     int JugadoresTest;
+    int Testeo;
     Jugador<int> Jugadores;
 
     //SETTER DE CLASE JUGADOR. VARIABLE ESCOJIDA ALEATORIAMENTE. CASO PUNTAJE1
@@ -44,6 +45,7 @@ TEST_CASE( "Test de clase Jugadores.h - [Getters y Setters]" )
 TEST_CASE( "Test de clase Pelotas.h - [Getters y Setters]" )
 {
     float PelotasTest;
+    float Testeo;
     Pelota<int,float> Pelotas;
 
     //SETTER DE CLASE PELOTA. VARIABLE ESCOJIDA ALEATORIAMENTE. CASO VELOCIDADX
@@ -56,20 +58,22 @@ TEST_CASE( "Test de clase Pelotas.h - [Getters y Setters]" )
 }
 TEST_CASE( "Test de clase Funcionalidades.h - [Getters y Setters]" )
 {
-    int FuncionalidadesTest;
+    bool FuncionalidadesTest;
+    bool Testeo;
     Funcionalidad<int,bool> Funcionalidades;
 
     //SETTER DE CLASE FUNCIONALIDADES. VARIABLE ESCOJIDA ALEATORIAMENTE. CASO PORTADA
     Funcionalidades.setPortada( false );
     FuncionalidadesTest = Funcionalidades.getPortada();
-    Testo = TesteoDeClases( FuncionalidadesTest );
+    Testeo = TesteoDeClases( FuncionalidadesTest );
 
     REQUIRE( FuncionalidadesTest = false );
-    REQUIRE( Testo == Funcionalidades.getPortada() );
+    REQUIRE( Testeo == Funcionalidades.getPortada() );
 }
 TEST_CASE( "Test de clase Paletas.h - [Getters y Setters]" )
 {
     int PaletasTest;
+    int Testeo;
     Paleta<int> Paletas;
 
     //SETTER DE CLASE PALETA. VARIABLE ESCOJIDA ALEATORIAMENTE. CASO ANCHO
